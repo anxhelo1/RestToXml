@@ -10,8 +10,14 @@ namespace WEBAPP.Controllers
 {
     public class HomeController : Controller
     {
-        public async Task<ActionResult> Index(string searchTerm = "alb")
+        public async Task<ActionResult> Index(string searchTerm)
         {
+            ViewBag.searchTerm = searchTerm;
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                ViewBag.hasError = false;
+                return View(new Country[0]);
+            }
 
             ViewBag.searchTerm = searchTerm;
             var service = new CountriesService.CountriesSoapClient();

@@ -1,4 +1,5 @@
-﻿@model WEBAPP.CountriesService.Country[]
+﻿@using System.Web.UI.WebControls
+@model WEBAPP.CountriesService.Country[]
 @{
 
     ViewBag.Title = "Home Page";
@@ -15,7 +16,7 @@
             {
                 @ViewBag.Error
             }
-            else
+            else if(Model.Any())
             {
                 foreach (var c in Model)
                  {
