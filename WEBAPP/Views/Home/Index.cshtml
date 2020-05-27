@@ -1,0 +1,38 @@
+﻿@model WEBAPP.CountriesService.Country[]
+@{
+
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-12">
+        <form>
+            <label for="searchTerm">Search for a state</label>
+            <input type="text" class="form-control" name="searchTerm" value="@ViewBag.searchTerm"/>
+        </form>
+        <div class="row">
+            @if (ViewBag.hasError)
+            {
+                @ViewBag.Error
+            }
+            else
+            {
+                foreach (var c in Model)
+                 {
+                     <div class="col-md-4">
+                         <div class="well">
+                             <ol>
+                                 <li>@c.name</li>
+                                 <li>@c.alpha3Code</li>
+                                 <li>@c.region</li>
+                                 <li>@c.subregion</li>
+                                 <li>@c.capital</li>
+                             </ol>
+                         </div>
+                     </div>
+                 }
+            }
+          
+        </div>
+    </div>
+</div>
