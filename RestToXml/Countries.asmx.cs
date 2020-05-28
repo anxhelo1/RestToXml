@@ -21,13 +21,13 @@ namespace RestToXml
     // [System.Web.Script.Services.ScriptService]
     public class Countries : System.Web.Services.WebService
     {
-        protected ICountryService Service { get; set; }
+        protected ICountryService service { get; set; }
 
         [WebMethod]
         public List<Country> GetCountries(string searchTerm)
         {
-            Service = new RestCountryService();
-            return Service.GeCountries(searchTerm);
+            service = new RestCountryService();
+            return service.GeCountries(searchTerm);
         }
     }
 }
