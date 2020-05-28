@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -9,7 +10,7 @@ namespace RestToXml
 {
     public class RestCountryService : ICountryService
     {
-        private static readonly string Address = "https://restcountries.eu/rest/v2/name/";
+        private static readonly string Address = ConfigurationManager.AppSettings["rest_url"];
         public List<Country> GeCountries(string term)
         {
 
